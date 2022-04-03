@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="loader.css">
+</head>
+<body>
+    @model SeamlessRedirectPage
+    @{
+    ViewData["Title"] = "Login Validation";
+    Layout = "~/Areas/Client/Views/Shared/_LayoutWith.cshtml";
+    }
+    <div class="container"> 
+        <h2>@ViewData["Title"].</h2>
+        <div class="loader"></div>
+    </div>
+    <input type="hidden" readonly id="clientRedirectUrl" name="clientRedirectUrl" asp-for="RedirectUri"
+        class="form-control" />
+    <script>
+        window.onload = function () {
+
+            var clientRedirectUrl = document.getElementById("clientRedirectUrl").value;
+            setTimeout(function () {
+                window.close();
+                window.opener.location.href = clientRedirectUrl;
+            }, 2000);
+        }
+    </script>
+    @section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    }
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+* {
+  font-family: "Manrope", sans-serif;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #f7b500;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+  left: calc(-50vw + 50%);
+  right: calc(-50vw + 50%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
